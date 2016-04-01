@@ -23,7 +23,7 @@ wstring bool_to_wstring(bool b)
     return b ? L"true" : L"false";
 }
 
-wstring TokenType::toJSON()
+wstring TokenType::toJSON() const
 {
     // Comments are just there to force clang-format to break lines
     return wstring(L"{\"label\":\"" + label + L"\"" + //

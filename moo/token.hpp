@@ -15,11 +15,11 @@
 using namespace std;
 
 class Token {
-    wstring value{ L"" };
-    TokenType type;
-    int start{ -1 };
-    int end{ -1 };
-    bool _isEOF{ false };
+    const wstring value{ L"" };
+    const TokenType& type;
+    const int start{ -1 };
+    const int end{ -1 };
+    const bool _isEOF{ false };
 
 public:
     Token()
@@ -34,7 +34,7 @@ public:
 
     bool isEOF() { return _isEOF; };
 
-    wstring toJSON();
+    wstring toJSON() const;
 };
 
 #endif /* token_hpp */

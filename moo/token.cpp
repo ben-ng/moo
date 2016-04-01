@@ -8,7 +8,7 @@
 
 #include "token.hpp"
 
-wstring Token::toJSON()
+wstring Token::toJSON() const
 {
     // Comments are just there to force clang-format to break lines
     return wstring(L"{\"end\":" + to_wstring(end) + //
