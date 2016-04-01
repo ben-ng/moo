@@ -10,5 +10,9 @@
 
 wstring Token::toJSON()
 {
-    return wstring(L"{\"end\":" + to_wstring(end) + L"}");
+    // Comments are just there to force clang-format to break lines
+    return wstring(L"{\"end\":" + to_wstring(end) + //
+        L",\"start\":" + to_wstring(start) + //
+        L",\"type\":" + type.toJSON() + //
+        L"}");
 }

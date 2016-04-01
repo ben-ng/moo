@@ -23,6 +23,8 @@ struct TokenType {
     const bool isAssign;
     const bool prefix;
     const bool postfix;
+
+    wstring toJSON();
 };
 
 // Generated with bin/generate-tokentype-structs.js
