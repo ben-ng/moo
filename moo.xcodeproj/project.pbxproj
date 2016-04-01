@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B54DD9951CAD73C900B40D48 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B54DD9941CAD73C900B40D48 /* main.cpp */; };
+		B59264431CADC42B004D1DDE /* lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B59264411CADC42B004D1DDE /* lexer.cpp */; };
+		B592644D1CADCEF7004D1DDE /* token.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B592644B1CADCEF7004D1DDE /* token.cpp */; };
+		B59264501CAE081F004D1DDE /* identifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B592644E1CAE081F004D1DDE /* identifier.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		B54DD9911CAD73C900B40D48 /* moo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = moo; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54DD9941CAD73C900B40D48 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B59264411CADC42B004D1DDE /* lexer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lexer.cpp; sourceTree = "<group>"; };
+		B59264421CADC42B004D1DDE /* lexer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lexer.hpp; sourceTree = "<group>"; };
+		B592644B1CADCEF7004D1DDE /* token.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = token.cpp; sourceTree = "<group>"; };
+		B592644C1CADCEF7004D1DDE /* token.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = token.hpp; sourceTree = "<group>"; };
+		B592644E1CAE081F004D1DDE /* identifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = identifier.cpp; sourceTree = "<group>"; };
+		B592644F1CAE081F004D1DDE /* identifier.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = identifier.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				B54DD9941CAD73C900B40D48 /* main.cpp */,
+				B59264411CADC42B004D1DDE /* lexer.cpp */,
+				B59264421CADC42B004D1DDE /* lexer.hpp */,
+				B592644B1CADCEF7004D1DDE /* token.cpp */,
+				B592644C1CADCEF7004D1DDE /* token.hpp */,
+				B592644E1CAE081F004D1DDE /* identifier.cpp */,
+				B592644F1CAE081F004D1DDE /* identifier.hpp */,
 			);
 			path = moo;
 			sourceTree = "<group>";
@@ -118,7 +133,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59264431CADC42B004D1DDE /* lexer.cpp in Sources */,
 				B54DD9951CAD73C900B40D48 /* main.cpp in Sources */,
+				B59264501CAE081F004D1DDE /* identifier.cpp in Sources */,
+				B592644D1CADCEF7004D1DDE /* token.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +227,7 @@
 		B54DD9991CAD73C900B40D48 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -216,6 +235,7 @@
 		B54DD99A1CAD73C900B40D48 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -239,6 +259,7 @@
 				B54DD99A1CAD73C900B40D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

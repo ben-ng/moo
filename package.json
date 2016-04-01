@@ -1,0 +1,42 @@
+{
+  "name": "moo",
+  "version": "0.0.1",
+  "description": "A Native ES6 to estree Parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run clean --silent > /dev/null && npm run build --silent && tap test/*.js",
+    "tdd": "nodemon -i build -i node_modules -e js,cpp -x \"clear && npm test --silent\"",
+    "build": "xcodebuild -scheme moo build",
+    "lex": "exe=\"$(npm run output-dir-debug --silent)/moo\" && $exe",
+    "exe-debug": "echo \"$(npm run output-dir-debug --silent)/moo\"",
+    "output-dir-release": "xcodebuild -project moo.xcodeproj -showBuildSettings | grep TARGET_BUILD_DIR | cut -d= -f2 | cut -c2-",
+    "output-dir-debug": "releaseDir=\"$(npm run output-dir-release --silent)\" && echo \"${releaseDir/Release/Debug}\"",
+    "clean": "rm -rf build/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-ng/moo.git"
+  },
+  "keywords": [
+    "parser",
+    "esprima",
+    "acorn",
+    "babylon",
+    "es6"
+  ],
+  "author": "Ben Ng <me@benng.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ben-ng/moo/issues"
+  },
+  "homepage": "https://github.com/ben-ng/moo#readme",
+  "devDependencies": {
+    "acorn": "^3.0.4",
+    "async": "^2.0.0-rc.2",
+    "clear-cli": "^1.0.1",
+    "everything.js": "^1.0.3",
+    "glob": "^7.0.3",
+    "tap": "^5.7.0",
+    "unicode-8.0.0": "^0.1.5"
+  }
+}
