@@ -11,6 +11,7 @@
 		B59264431CADC42B004D1DDE /* lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B59264411CADC42B004D1DDE /* lexer.cpp */; };
 		B592644D1CADCEF7004D1DDE /* token.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B592644B1CADCEF7004D1DDE /* token.cpp */; };
 		B59264501CAE081F004D1DDE /* identifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B592644E1CAE081F004D1DDE /* identifier.cpp */; };
+		B59264531CAECFD8004D1DDE /* tokentype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B59264511CAECFD8004D1DDE /* tokentype.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		B592644C1CADCEF7004D1DDE /* token.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = token.hpp; sourceTree = "<group>"; };
 		B592644E1CAE081F004D1DDE /* identifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = identifier.cpp; sourceTree = "<group>"; };
 		B592644F1CAE081F004D1DDE /* identifier.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = identifier.hpp; sourceTree = "<group>"; };
+		B59264511CAECFD8004D1DDE /* tokentype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tokentype.cpp; sourceTree = "<group>"; };
+		B59264521CAECFD8004D1DDE /* tokentype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tokentype.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				B592644C1CADCEF7004D1DDE /* token.hpp */,
 				B592644E1CAE081F004D1DDE /* identifier.cpp */,
 				B592644F1CAE081F004D1DDE /* identifier.hpp */,
+				B59264511CAECFD8004D1DDE /* tokentype.cpp */,
+				B59264521CAECFD8004D1DDE /* tokentype.hpp */,
 			);
 			path = moo;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59264531CAECFD8004D1DDE /* tokentype.cpp in Sources */,
 				B59264431CADC42B004D1DDE /* lexer.cpp in Sources */,
 				B54DD9951CAD73C900B40D48 /* main.cpp in Sources */,
 				B59264501CAE081F004D1DDE /* identifier.cpp in Sources */,
