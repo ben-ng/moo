@@ -9,13 +9,14 @@
 #ifndef tokentype_hpp
 #define tokentype_hpp
 
+#include "utfconv.hpp"
 #include <string>
 
 using namespace std;
 
 struct TokenType {
-    const wstring label;
-    const wstring keyword;
+    const u32string label;
+    const u32string keyword;
     const int binop; // -1 if not a binop, otherwise the precedence of the operator
     const bool beforeExpr;
     const bool startsExpr;
@@ -24,13 +25,13 @@ struct TokenType {
     const bool prefix;
     const bool postfix;
 
-    wstring toJSON() const;
+    u32string toJSON() const;
 };
 
 // Generated with bin/generate-tokentype-structs.js
 static const TokenType TokenTypeNum{
-    .label = L"num",
-    .keyword = L"",
+    .label = U"num",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -41,8 +42,8 @@ static const TokenType TokenTypeNum{
 };
 
 static const TokenType TokenTypeRegExp{
-    .label = L"regexp",
-    .keyword = L"",
+    .label = U"regexp",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -53,8 +54,8 @@ static const TokenType TokenTypeRegExp{
 };
 
 static const TokenType TokenTypeString{
-    .label = L"string",
-    .keyword = L"",
+    .label = U"string",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -65,8 +66,8 @@ static const TokenType TokenTypeString{
 };
 
 static const TokenType TokenTypeName{
-    .label = L"name",
-    .keyword = L"",
+    .label = U"name",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -77,8 +78,8 @@ static const TokenType TokenTypeName{
 };
 
 static const TokenType TokenTypeEOF{
-    .label = L"eof",
-    .keyword = L"",
+    .label = U"eof",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -89,8 +90,8 @@ static const TokenType TokenTypeEOF{
 };
 
 static const TokenType TokenTypeBracketL{
-    .label = L"[",
-    .keyword = L"",
+    .label = U"[",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,
@@ -101,8 +102,8 @@ static const TokenType TokenTypeBracketL{
 };
 
 static const TokenType TokenTypeBracketR{
-    .label = L"]",
-    .keyword = L"",
+    .label = U"]",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -113,8 +114,8 @@ static const TokenType TokenTypeBracketR{
 };
 
 static const TokenType TokenTypeBraceL{
-    .label = L"{",
-    .keyword = L"",
+    .label = U"{",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,
@@ -125,8 +126,8 @@ static const TokenType TokenTypeBraceL{
 };
 
 static const TokenType TokenTypeBraceR{
-    .label = L"}",
-    .keyword = L"",
+    .label = U"}",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -137,8 +138,8 @@ static const TokenType TokenTypeBraceR{
 };
 
 static const TokenType TokenTypeParenL{
-    .label = L"(",
-    .keyword = L"",
+    .label = U"(",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,
@@ -149,8 +150,8 @@ static const TokenType TokenTypeParenL{
 };
 
 static const TokenType TokenTypeParenR{
-    .label = L")",
-    .keyword = L"",
+    .label = U")",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -161,8 +162,8 @@ static const TokenType TokenTypeParenR{
 };
 
 static const TokenType TokenTypeComma{
-    .label = L",",
-    .keyword = L"",
+    .label = U",",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -173,8 +174,8 @@ static const TokenType TokenTypeComma{
 };
 
 static const TokenType TokenTypeSemi{
-    .label = L";",
-    .keyword = L"",
+    .label = U";",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -185,8 +186,8 @@ static const TokenType TokenTypeSemi{
 };
 
 static const TokenType TokenTypeColon{
-    .label = L":",
-    .keyword = L"",
+    .label = U":",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -197,8 +198,8 @@ static const TokenType TokenTypeColon{
 };
 
 static const TokenType TokenTypeDot{
-    .label = L".",
-    .keyword = L"",
+    .label = U".",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -209,8 +210,8 @@ static const TokenType TokenTypeDot{
 };
 
 static const TokenType TokenTypeQuestion{
-    .label = L"?",
-    .keyword = L"",
+    .label = U"?",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -221,8 +222,8 @@ static const TokenType TokenTypeQuestion{
 };
 
 static const TokenType TokenTypeArrow{
-    .label = L"=>",
-    .keyword = L"",
+    .label = U"=>",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -233,8 +234,8 @@ static const TokenType TokenTypeArrow{
 };
 
 static const TokenType TokenTypeTemplate{
-    .label = L"template",
-    .keyword = L"",
+    .label = U"template",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -245,8 +246,8 @@ static const TokenType TokenTypeTemplate{
 };
 
 static const TokenType TokenTypeEllipsis{
-    .label = L"...",
-    .keyword = L"",
+    .label = U"...",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -257,8 +258,8 @@ static const TokenType TokenTypeEllipsis{
 };
 
 static const TokenType TokenTypeBackquote{
-    .label = L"`",
-    .keyword = L"",
+    .label = U"`",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -269,8 +270,8 @@ static const TokenType TokenTypeBackquote{
 };
 
 static const TokenType TokenTypeDollarBraceL{
-    .label = L"${",
-    .keyword = L"",
+    .label = U"${",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,
@@ -281,8 +282,8 @@ static const TokenType TokenTypeDollarBraceL{
 };
 
 static const TokenType TokenTypeEq{
-    .label = L"=",
-    .keyword = L"",
+    .label = U"=",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -293,8 +294,8 @@ static const TokenType TokenTypeEq{
 };
 
 static const TokenType TokenTypeAssign{
-    .label = L"_=",
-    .keyword = L"",
+    .label = U"_=",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -305,8 +306,8 @@ static const TokenType TokenTypeAssign{
 };
 
 static const TokenType TokenTypeIncDec{
-    .label = L"++/--",
-    .keyword = L"",
+    .label = U"++/--",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -317,8 +318,8 @@ static const TokenType TokenTypeIncDec{
 };
 
 static const TokenType TokenTypePrefix{
-    .label = L"prefix",
-    .keyword = L"",
+    .label = U"prefix",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,
@@ -329,8 +330,8 @@ static const TokenType TokenTypePrefix{
 };
 
 static const TokenType TokenTypeLogicalOr{
-    .label = L"||",
-    .keyword = L"",
+    .label = U"||",
+    .keyword = U"",
     .binop = 1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -341,8 +342,8 @@ static const TokenType TokenTypeLogicalOr{
 };
 
 static const TokenType TokenTypeLogicalAnd{
-    .label = L"&&",
-    .keyword = L"",
+    .label = U"&&",
+    .keyword = U"",
     .binop = 2,
     .beforeExpr = true,
     .startsExpr = false,
@@ -353,8 +354,8 @@ static const TokenType TokenTypeLogicalAnd{
 };
 
 static const TokenType TokenTypeBitwiseOr{
-    .label = L"|",
-    .keyword = L"",
+    .label = U"|",
+    .keyword = U"",
     .binop = 3,
     .beforeExpr = true,
     .startsExpr = false,
@@ -365,8 +366,8 @@ static const TokenType TokenTypeBitwiseOr{
 };
 
 static const TokenType TokenTypeBitwiseXor{
-    .label = L"^",
-    .keyword = L"",
+    .label = U"^",
+    .keyword = U"",
     .binop = 4,
     .beforeExpr = true,
     .startsExpr = false,
@@ -377,8 +378,8 @@ static const TokenType TokenTypeBitwiseXor{
 };
 
 static const TokenType TokenTypeBitwiseAnd{
-    .label = L"&",
-    .keyword = L"",
+    .label = U"&",
+    .keyword = U"",
     .binop = 5,
     .beforeExpr = true,
     .startsExpr = false,
@@ -389,8 +390,8 @@ static const TokenType TokenTypeBitwiseAnd{
 };
 
 static const TokenType TokenTypeEquality{
-    .label = L"==/!=",
-    .keyword = L"",
+    .label = U"==/!=",
+    .keyword = U"",
     .binop = 6,
     .beforeExpr = true,
     .startsExpr = false,
@@ -401,8 +402,8 @@ static const TokenType TokenTypeEquality{
 };
 
 static const TokenType TokenTypeRelational{
-    .label = L"</>",
-    .keyword = L"",
+    .label = U"</>",
+    .keyword = U"",
     .binop = 7,
     .beforeExpr = true,
     .startsExpr = false,
@@ -413,8 +414,8 @@ static const TokenType TokenTypeRelational{
 };
 
 static const TokenType TokenTypeBitShift{
-    .label = L"<</>>",
-    .keyword = L"",
+    .label = U"<</>>",
+    .keyword = U"",
     .binop = 8,
     .beforeExpr = true,
     .startsExpr = false,
@@ -425,8 +426,8 @@ static const TokenType TokenTypeBitShift{
 };
 
 static const TokenType TokenTypePlusMin{
-    .label = L"+/-",
-    .keyword = L"",
+    .label = U"+/-",
+    .keyword = U"",
     .binop = 9,
     .beforeExpr = true,
     .startsExpr = true,
@@ -437,8 +438,8 @@ static const TokenType TokenTypePlusMin{
 };
 
 static const TokenType TokenTypeModulo{
-    .label = L"%",
-    .keyword = L"",
+    .label = U"%",
+    .keyword = U"",
     .binop = 10,
     .beforeExpr = true,
     .startsExpr = false,
@@ -449,8 +450,8 @@ static const TokenType TokenTypeModulo{
 };
 
 static const TokenType TokenTypeStar{
-    .label = L"*",
-    .keyword = L"",
+    .label = U"*",
+    .keyword = U"",
     .binop = 10,
     .beforeExpr = true,
     .startsExpr = false,
@@ -461,8 +462,8 @@ static const TokenType TokenTypeStar{
 };
 
 static const TokenType TokenTypeSlash{
-    .label = L"/",
-    .keyword = L"",
+    .label = U"/",
+    .keyword = U"",
     .binop = 10,
     .beforeExpr = true,
     .startsExpr = false,
@@ -473,8 +474,8 @@ static const TokenType TokenTypeSlash{
 };
 
 static const TokenType TokenTypeStarStar{
-    .label = L"**",
-    .keyword = L"",
+    .label = U"**",
+    .keyword = U"",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -485,8 +486,8 @@ static const TokenType TokenTypeStarStar{
 };
 
 static const TokenType TokenTypeBreakKeyword{
-    .label = L"break",
-    .keyword = L"break",
+    .label = U"break",
+    .keyword = U"break",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -497,8 +498,8 @@ static const TokenType TokenTypeBreakKeyword{
 };
 
 static const TokenType TokenTypeCaseKeyword{
-    .label = L"case",
-    .keyword = L"case",
+    .label = U"case",
+    .keyword = U"case",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -509,8 +510,8 @@ static const TokenType TokenTypeCaseKeyword{
 };
 
 static const TokenType TokenTypeCatchKeyword{
-    .label = L"catch",
-    .keyword = L"catch",
+    .label = U"catch",
+    .keyword = U"catch",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -521,8 +522,8 @@ static const TokenType TokenTypeCatchKeyword{
 };
 
 static const TokenType TokenTypeContinueKeyword{
-    .label = L"continue",
-    .keyword = L"continue",
+    .label = U"continue",
+    .keyword = U"continue",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -533,8 +534,8 @@ static const TokenType TokenTypeContinueKeyword{
 };
 
 static const TokenType TokenTypeDebuggerKeyword{
-    .label = L"debugger",
-    .keyword = L"debugger",
+    .label = U"debugger",
+    .keyword = U"debugger",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -545,8 +546,8 @@ static const TokenType TokenTypeDebuggerKeyword{
 };
 
 static const TokenType TokenTypeDefaultKeyword{
-    .label = L"default",
-    .keyword = L"default",
+    .label = U"default",
+    .keyword = U"default",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -557,8 +558,8 @@ static const TokenType TokenTypeDefaultKeyword{
 };
 
 static const TokenType TokenTypeDoKeyword{
-    .label = L"do",
-    .keyword = L"do",
+    .label = U"do",
+    .keyword = U"do",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -569,8 +570,8 @@ static const TokenType TokenTypeDoKeyword{
 };
 
 static const TokenType TokenTypeElseKeyword{
-    .label = L"else",
-    .keyword = L"else",
+    .label = U"else",
+    .keyword = U"else",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -581,8 +582,8 @@ static const TokenType TokenTypeElseKeyword{
 };
 
 static const TokenType TokenTypeFinallyKeyword{
-    .label = L"finally",
-    .keyword = L"finally",
+    .label = U"finally",
+    .keyword = U"finally",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -593,8 +594,8 @@ static const TokenType TokenTypeFinallyKeyword{
 };
 
 static const TokenType TokenTypeForKeyword{
-    .label = L"for",
-    .keyword = L"for",
+    .label = U"for",
+    .keyword = U"for",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -605,8 +606,8 @@ static const TokenType TokenTypeForKeyword{
 };
 
 static const TokenType TokenTypeFunctionKeyword{
-    .label = L"function",
-    .keyword = L"function",
+    .label = U"function",
+    .keyword = U"function",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -617,8 +618,8 @@ static const TokenType TokenTypeFunctionKeyword{
 };
 
 static const TokenType TokenTypeIfKeyword{
-    .label = L"if",
-    .keyword = L"if",
+    .label = U"if",
+    .keyword = U"if",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -629,8 +630,8 @@ static const TokenType TokenTypeIfKeyword{
 };
 
 static const TokenType TokenTypeReturnKeyword{
-    .label = L"return",
-    .keyword = L"return",
+    .label = U"return",
+    .keyword = U"return",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -641,8 +642,8 @@ static const TokenType TokenTypeReturnKeyword{
 };
 
 static const TokenType TokenTypeSwitchKeyword{
-    .label = L"switch",
-    .keyword = L"switch",
+    .label = U"switch",
+    .keyword = U"switch",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -653,8 +654,8 @@ static const TokenType TokenTypeSwitchKeyword{
 };
 
 static const TokenType TokenTypeThrowKeyword{
-    .label = L"throw",
-    .keyword = L"throw",
+    .label = U"throw",
+    .keyword = U"throw",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -665,8 +666,8 @@ static const TokenType TokenTypeThrowKeyword{
 };
 
 static const TokenType TokenTypeTryKeyword{
-    .label = L"try",
-    .keyword = L"try",
+    .label = U"try",
+    .keyword = U"try",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -677,8 +678,8 @@ static const TokenType TokenTypeTryKeyword{
 };
 
 static const TokenType TokenTypeVarKeyword{
-    .label = L"var",
-    .keyword = L"var",
+    .label = U"var",
+    .keyword = U"var",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -689,8 +690,8 @@ static const TokenType TokenTypeVarKeyword{
 };
 
 static const TokenType TokenTypeConstKeyword{
-    .label = L"const",
-    .keyword = L"const",
+    .label = U"const",
+    .keyword = U"const",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -701,8 +702,8 @@ static const TokenType TokenTypeConstKeyword{
 };
 
 static const TokenType TokenTypeWhileKeyword{
-    .label = L"while",
-    .keyword = L"while",
+    .label = U"while",
+    .keyword = U"while",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -713,8 +714,8 @@ static const TokenType TokenTypeWhileKeyword{
 };
 
 static const TokenType TokenTypeWithKeyword{
-    .label = L"with",
-    .keyword = L"with",
+    .label = U"with",
+    .keyword = U"with",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -725,8 +726,8 @@ static const TokenType TokenTypeWithKeyword{
 };
 
 static const TokenType TokenTypeNewKeyword{
-    .label = L"new",
-    .keyword = L"new",
+    .label = U"new",
+    .keyword = U"new",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,
@@ -737,8 +738,8 @@ static const TokenType TokenTypeNewKeyword{
 };
 
 static const TokenType TokenTypeThisKeyword{
-    .label = L"this",
-    .keyword = L"this",
+    .label = U"this",
+    .keyword = U"this",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -749,8 +750,8 @@ static const TokenType TokenTypeThisKeyword{
 };
 
 static const TokenType TokenTypeSuperKeyword{
-    .label = L"super",
-    .keyword = L"super",
+    .label = U"super",
+    .keyword = U"super",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -761,8 +762,8 @@ static const TokenType TokenTypeSuperKeyword{
 };
 
 static const TokenType TokenTypeClassKeyword{
-    .label = L"class",
-    .keyword = L"class",
+    .label = U"class",
+    .keyword = U"class",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -773,8 +774,8 @@ static const TokenType TokenTypeClassKeyword{
 };
 
 static const TokenType TokenTypeExtendsKeyword{
-    .label = L"extends",
-    .keyword = L"extends",
+    .label = U"extends",
+    .keyword = U"extends",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = false,
@@ -785,8 +786,8 @@ static const TokenType TokenTypeExtendsKeyword{
 };
 
 static const TokenType TokenTypeExportKeyword{
-    .label = L"export",
-    .keyword = L"export",
+    .label = U"export",
+    .keyword = U"export",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -797,8 +798,8 @@ static const TokenType TokenTypeExportKeyword{
 };
 
 static const TokenType TokenTypeImportKeyword{
-    .label = L"import",
-    .keyword = L"import",
+    .label = U"import",
+    .keyword = U"import",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = false,
@@ -809,8 +810,8 @@ static const TokenType TokenTypeImportKeyword{
 };
 
 static const TokenType TokenTypeNullKeyword{
-    .label = L"null",
-    .keyword = L"null",
+    .label = U"null",
+    .keyword = U"null",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -821,8 +822,8 @@ static const TokenType TokenTypeNullKeyword{
 };
 
 static const TokenType TokenTypeTrueKeyword{
-    .label = L"true",
-    .keyword = L"true",
+    .label = U"true",
+    .keyword = U"true",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -833,8 +834,8 @@ static const TokenType TokenTypeTrueKeyword{
 };
 
 static const TokenType TokenTypeFalseKeyword{
-    .label = L"false",
-    .keyword = L"false",
+    .label = U"false",
+    .keyword = U"false",
     .binop = -1,
     .beforeExpr = false,
     .startsExpr = true,
@@ -845,8 +846,8 @@ static const TokenType TokenTypeFalseKeyword{
 };
 
 static const TokenType TokenTypeInKeyword{
-    .label = L"in",
-    .keyword = L"in",
+    .label = U"in",
+    .keyword = U"in",
     .binop = 7,
     .beforeExpr = true,
     .startsExpr = false,
@@ -857,8 +858,8 @@ static const TokenType TokenTypeInKeyword{
 };
 
 static const TokenType TokenTypeInstanceofKeyword{
-    .label = L"instanceof",
-    .keyword = L"instanceof",
+    .label = U"instanceof",
+    .keyword = U"instanceof",
     .binop = 7,
     .beforeExpr = true,
     .startsExpr = false,
@@ -869,8 +870,8 @@ static const TokenType TokenTypeInstanceofKeyword{
 };
 
 static const TokenType TokenTypeTypeofKeyword{
-    .label = L"typeof",
-    .keyword = L"typeof",
+    .label = U"typeof",
+    .keyword = U"typeof",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,
@@ -881,8 +882,8 @@ static const TokenType TokenTypeTypeofKeyword{
 };
 
 static const TokenType TokenTypeVoidKeyword{
-    .label = L"void",
-    .keyword = L"void",
+    .label = U"void",
+    .keyword = U"void",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,
@@ -893,8 +894,8 @@ static const TokenType TokenTypeVoidKeyword{
 };
 
 static const TokenType TokenTypeDeleteKeyword{
-    .label = L"delete",
-    .keyword = L"delete",
+    .label = U"delete",
+    .keyword = U"delete",
     .binop = -1,
     .beforeExpr = true,
     .startsExpr = true,

@@ -8,6 +8,7 @@
 
 #include "lexer.hpp"
 #include "token.hpp"
+#include "utfconv.hpp"
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -17,29 +18,33 @@ using namespace std;
 
 int main(int argc, const char* argv[])
 {
+    if (argc < 2) {
+        throw runtime_error("Expected at least one argument");
+    }
+
     Lexer lex(argv[1]);
     bool isFirst = true;
 
-    wcout << L'[';
+    cout << '[';
 
     while (true) {
         auto t = lex.nextToken();
 
         if (!isFirst) {
-            wcout << L',';
+            cout << ',';
         }
         else {
             isFirst = true;
         }
 
-        wcout << t.toJSON();
+        cout << UTFConv::u32string_to_string(t.toJSON());
 
         if (t.isEOF()) {
             break;
         }
     }
 
-    wcout << L']';
+    cout << ']';
 
     return 0;
 }

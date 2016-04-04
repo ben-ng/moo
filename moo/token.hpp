@@ -10,23 +10,29 @@
 #define token_hpp
 
 #include "tokentype.hpp"
+#include <locale>
 #include <string>
 
 using namespace std;
 
 class Token {
-    const wstring value{ L"" };
+    const u32string value{ U"" };
     const TokenType& type;
-    const int start{ -1 };
-    const int end{ -1 };
+    const size_t start{ 0 };
+    const size_t end{ 0 };
     const bool _isEOF{ false };
 
 public:
     Token()
-        : _isEOF{ true }
-        , type{ TokenTypeEOF } {};
+        : type{ TokenTypeEOF }
+        , _isEOF{ true } {};
 
-    Token(wstring _value, TokenType _type, int _start, int _end)
+    Token(TokenType _type, size_t _start, size_t _end)
+        : type{ _type }
+        , start{ _start }
+        , end{ _end } {};
+
+    Token(u32string _value, TokenType _type, size_t _start, size_t _end)
         : value{ _value }
         , type{ _type }
         , start{ _start }
@@ -34,7 +40,7 @@ public:
 
     bool isEOF() { return _isEOF; };
 
-    wstring toJSON() const;
+    u32string toJSON() const;
 };
 
 #endif /* token_hpp */

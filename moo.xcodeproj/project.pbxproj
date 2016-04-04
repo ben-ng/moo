@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5303F8B1CB1C53600353F02 /* utfconv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5303F891CB1C53600353F02 /* utfconv.cpp */; };
 		B54DD9951CAD73C900B40D48 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B54DD9941CAD73C900B40D48 /* main.cpp */; };
 		B59264431CADC42B004D1DDE /* lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B59264411CADC42B004D1DDE /* lexer.cpp */; };
 		B592644D1CADCEF7004D1DDE /* token.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B592644B1CADCEF7004D1DDE /* token.cpp */; };
 		B59264501CAE081F004D1DDE /* identifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B592644E1CAE081F004D1DDE /* identifier.cpp */; };
 		B59264531CAECFD8004D1DDE /* tokentype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B59264511CAECFD8004D1DDE /* tokentype.cpp */; };
+		B59264561CB17FC9004D1DDE /* parseerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B59264541CB17FC9004D1DDE /* parseerror.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B5303F891CB1C53600353F02 /* utfconv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utfconv.cpp; sourceTree = "<group>"; };
+		B5303F8A1CB1C53600353F02 /* utfconv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utfconv.hpp; sourceTree = "<group>"; };
 		B54DD9911CAD73C900B40D48 /* moo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = moo; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54DD9941CAD73C900B40D48 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B59264411CADC42B004D1DDE /* lexer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lexer.cpp; sourceTree = "<group>"; };
@@ -37,6 +41,8 @@
 		B592644F1CAE081F004D1DDE /* identifier.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = identifier.hpp; sourceTree = "<group>"; };
 		B59264511CAECFD8004D1DDE /* tokentype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tokentype.cpp; sourceTree = "<group>"; };
 		B59264521CAECFD8004D1DDE /* tokentype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tokentype.hpp; sourceTree = "<group>"; };
+		B59264541CB17FC9004D1DDE /* parseerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parseerror.cpp; sourceTree = "<group>"; };
+		B59264551CB17FC9004D1DDE /* parseerror.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = parseerror.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,12 +78,16 @@
 				B54DD9941CAD73C900B40D48 /* main.cpp */,
 				B59264411CADC42B004D1DDE /* lexer.cpp */,
 				B59264421CADC42B004D1DDE /* lexer.hpp */,
+				B59264541CB17FC9004D1DDE /* parseerror.cpp */,
+				B59264551CB17FC9004D1DDE /* parseerror.hpp */,
 				B592644B1CADCEF7004D1DDE /* token.cpp */,
 				B592644C1CADCEF7004D1DDE /* token.hpp */,
 				B592644E1CAE081F004D1DDE /* identifier.cpp */,
 				B592644F1CAE081F004D1DDE /* identifier.hpp */,
 				B59264511CAECFD8004D1DDE /* tokentype.cpp */,
 				B59264521CAECFD8004D1DDE /* tokentype.hpp */,
+				B5303F891CB1C53600353F02 /* utfconv.cpp */,
+				B5303F8A1CB1C53600353F02 /* utfconv.hpp */,
 			);
 			path = moo;
 			sourceTree = "<group>";
@@ -138,9 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59264561CB17FC9004D1DDE /* parseerror.cpp in Sources */,
 				B59264531CAECFD8004D1DDE /* tokentype.cpp in Sources */,
 				B59264431CADC42B004D1DDE /* lexer.cpp in Sources */,
 				B54DD9951CAD73C900B40D48 /* main.cpp in Sources */,
+				B5303F8B1CB1C53600353F02 /* utfconv.cpp in Sources */,
 				B59264501CAE081F004D1DDE /* identifier.cpp in Sources */,
 				B592644D1CADCEF7004D1DDE /* token.cpp in Sources */,
 			);
@@ -154,7 +166,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -172,7 +184,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -198,7 +210,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -216,7 +228,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -233,7 +245,13 @@
 		B54DD9991CAD73C900B40D48 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ADDRESS_SANITIZER_CONTAINER_OVERFLOW = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wall",
+					"-Wextra",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -241,7 +259,13 @@
 		B54DD99A1CAD73C900B40D48 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ADDRESS_SANITIZER_CONTAINER_OVERFLOW = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wall",
+					"-Wextra",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

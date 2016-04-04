@@ -8,33 +8,33 @@
 
 #include "tokentype.hpp"
 
-wstring keyword_to_esc_wstring(wstring kw)
+u32string keyword_to_esc_u32string(u32string kw)
 {
-    return kw.empty() ? L"null" : L"\"" + kw + L"\"";
+    return kw.empty() ? U"null" : U"\"" + kw + U"\"";
 }
 
-wstring binop_to_wstring(int b)
+u32string binop_to_u32string(int b)
 {
-    return b < 0 ? L"null" : to_wstring(b);
+    return b < 0 ? U"null" : UTFConv::int_to_u32string(b);
 }
 
-wstring bool_to_wstring(bool b)
+u32string bool_to_u32string(bool b)
 {
-    return b ? L"true" : L"false";
+    return b ? U"true" : U"false";
 }
 
-wstring TokenType::toJSON() const
+u32string TokenType::toJSON() const
 {
     // Comments are just there to force clang-format to break lines
-    return wstring(L"{\"label\":\"" + label + L"\"" + //
-        L",\"keyword\":" + keyword_to_esc_wstring(keyword) + L"" + //
-        L",\"binop\":" + binop_to_wstring(binop) + L"" + //
-        L",\"beforeExpr\":" + bool_to_wstring(beforeExpr) + L"" + //
-        L",\"startsExpr\":" + bool_to_wstring(startsExpr) + L"" + //
-        L",\"isLoop\":" + bool_to_wstring(isLoop) + L"" + //
-        L",\"isAssign\":" + bool_to_wstring(isAssign) + L"" + //
-        L",\"prefix\":" + bool_to_wstring(prefix) + L"" + //
-        L",\"postfix\":" + bool_to_wstring(postfix) + L"" + //
-        L",\"updateContext\":null" + // Hardcoding for now, may remove later
-        L"}");
+    return u32string(U"{\"label\":\"" + label + U"\"" + //
+        U",\"keyword\":" + keyword_to_esc_u32string(keyword) + U"" + //
+        U",\"binop\":" + binop_to_u32string(binop) + U"" + //
+        U",\"beforeExpr\":" + bool_to_u32string(beforeExpr) + U"" + //
+        U",\"startsExpr\":" + bool_to_u32string(startsExpr) + U"" + //
+        U",\"isLoop\":" + bool_to_u32string(isLoop) + U"" + //
+        U",\"isAssign\":" + bool_to_u32string(isAssign) + U"" + //
+        U",\"prefix\":" + bool_to_u32string(prefix) + U"" + //
+        U",\"postfix\":" + bool_to_u32string(postfix) + U"" + //
+        U",\"updateContext\":null" + // Hardcoding for now, may remove later
+        U"}");
 }

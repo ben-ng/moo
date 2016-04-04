@@ -2,4 +2,4 @@
 /***************
 * Block Comment
 ****************/
-console.log('Hello, 世界!')
+console.log('Hello, 世界🚀!')

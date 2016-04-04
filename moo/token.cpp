@@ -8,11 +8,11 @@
 
 #include "token.hpp"
 
-wstring Token::toJSON() const
+u32string Token::toJSON() const
 {
     // Comments are just there to force clang-format to break lines
-    return wstring(L"{\"end\":" + to_wstring(end) + //
-        L",\"start\":" + to_wstring(start) + //
-        L",\"type\":" + type.toJSON() + //
-        L"}");
+    return u32string(U"{\"end\":" + UTFConv::long_to_u32string(end) + //
+        U",\"start\":" + UTFConv::long_to_u32string(start) + //
+        U",\"type\":" + type.toJSON() + //
+        U"}");
 }

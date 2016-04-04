@@ -9,7 +9,10 @@
 #ifndef lexer_hpp
 #define lexer_hpp
 
+#include "identifier.hpp"
+#include "parseerror.hpp"
 #include "token.hpp"
+#include "utfconv.hpp"
 #include <codecvt>
 #include <fstream>
 #include <iostream>
@@ -19,9 +22,12 @@
 using namespace std;
 
 class Lexer {
-    int pos{ -1 };
+    u32string input;
+    size_t inputLength;
+    size_t pos;
+    size_t curLine;
+
     string filePath;
-    wifstream fileReadStream;
 
     void skipSpace();
     Token readToken();
